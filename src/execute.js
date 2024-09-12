@@ -1,14 +1,15 @@
+const variables = {}
+var tokenindex = 0
 function interpretCommand(command, argu) {
-    var ret;
     switch (command) {
         case "send":
             console.log(argu)
             break;
         case "def":
-            variables[argu[0]] = [argu[1]]
+            if (!argu[0]) throw SyntaxError;
+            else variables[argu[0]] = [argu[1]]
             break;
         default:
             throw ReferenceError;
-            break;
     }
 }
