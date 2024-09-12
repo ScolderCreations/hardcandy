@@ -8,6 +8,7 @@ function interpretCommand(command, argu) {
             variables[argu[0]] = [argu[1]]
             break;
         default:
+            throw ReferenceError;
             break;
     }
 }
