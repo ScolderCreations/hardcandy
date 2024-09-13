@@ -1,11 +1,13 @@
+file = ""
 const tk = require("./tokenizer.js")
 const fs = require("node:fs")
-fs.readFile("../test/test.hc", (e, data) => {
-    if (e) throw e;
+fs.readFile("./test/test.hc", (err, data) => {
+    if (err) throw err;
     file = String(data);
+    let tokens = tk.tokenize(file)
+    console.log(tokens)
 })
 
-let tokens = tk.tokenize(file)
 const variables = {}
 var tokenindex = 0
 

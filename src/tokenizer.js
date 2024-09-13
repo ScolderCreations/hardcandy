@@ -1,4 +1,4 @@
-export function tokenize(source /* String */ ) {
+function tokenize(source /* String */ ) {
     var isString = false
     var tokens = []
     var letter, currentToken;
@@ -16,3 +16,4 @@ export function tokenize(source /* String */ ) {
     }
     return tokens;
 }
+module.exports.tokenize = tokenize
