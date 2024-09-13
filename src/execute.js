@@ -37,6 +37,9 @@ function interpretCommand(command) {
             variables[tokens[toki]] = evaluate([tokens[toki+1]])
             toki++;
             break;
+        case "undef":
+            toki++;
+            delete variables[tokens[toki]];
         case "div":
             toki++
             variables[tokens[toki]] = variables[tokens[toki]] / evaluate(tokens[toki+1])
@@ -44,12 +47,12 @@ function interpretCommand(command) {
             break;
         case "add":
             toki++
-            variables[tokens[toki]] += evaluate(tokens[toki+1])
+            variables[tokens[toki]] = variables[tokens[toki]] + evaluate(tokens[toki+1])
             toki++
             break;
         case "sub":
             toki++
-            variables[tokens[toki]] -= evaluate(tokens[toki+1])
+            variables[tokens[toki]] = variables[tokens[toki]] - evaluate(tokens[toki+1])
             toki++
             break;
         default:
