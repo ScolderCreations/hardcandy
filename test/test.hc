@@ -1,2 +1,3 @@
+def sec "cendi"
 send "mendi"
-send "cendi"
+send sec
