@@ -1,7 +1,8 @@
 file = ""
 let tokens = {};
-const tk = require("./tokenizer.js")
 const fs = require("node:fs")
+const tk = require("./tokenizer.js")
+
 fs.readFile("./test/test.hc", (err, data) => {
     if (err) throw err;
     file = String(data);
@@ -17,13 +18,12 @@ const variables = {}
 let toki;
 
 function evaluate(token) {
-    try {
-        return variables[String(token)]
-    } catch {
-        if (/^"$"/.test(token)) {
-            return String(token).slice(1,-1)
-        }
-    }
+
+    if (/".*"/.test(String(token))) {
+        return String(token).slice(1,-1)
+    } else if (token in variables) {
+        return variables[token]
+    } else {return token;}
 }
 
 function interpretCommand(command) {
