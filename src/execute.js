@@ -34,7 +34,7 @@ function interpretCommand(command) {
             break;
         case "def":
             toki++;
-            variables[tokens[toki]] = [tokens[toki+1]]
+            variables[tokens[toki]] = evaluate([tokens[toki+1]])
             toki++;
             break;
         default:
