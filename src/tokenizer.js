@@ -1,7 +1,7 @@
 function tokenize(source /* String */ ) {
     var isString = false
     var tokens = []
-    var letter, currentToken;
+    var letter = "", currentToken = "";
     for (let x = 0; x < source.length; x++) {        
         letter = source[x];
         if (letter == '"') {
