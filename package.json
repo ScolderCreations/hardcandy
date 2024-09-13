@@ -1,5 +1,6 @@
 {
     "name": "hardcandy",
+    "license": "UNLICENSED",
     "scripts": 
     {
         "start": "node src/execute.js"

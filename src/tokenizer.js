@@ -7,7 +7,7 @@ function tokenize(source /* String */ ) {
         if (letter == '"') {
             isString = !isString;
         }
-        if ((letter == " ") | (letter == "\n") & !isString) {
+        if ((letter == " ") | (letter == "\n") | (letter == ";")& !isString) {
             if (currentToken.length>0) tokens.push(currentToken);
             currentToken = ""
         } else {
