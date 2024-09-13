@@ -1,4 +1,4 @@
-function tokenize(source /* String */ ) {
+export function tokenize(source /* String */ ) {
     var isString = false
     var tokens = []
     var letter, currentToken;
@@ -8,7 +8,11 @@ function tokenize(source /* String */ ) {
             isString = !isString;
         }
         if (letter == " " & !isString) {
-
+            tokens.push(currentToken);
+            currentToken = ""
+        } else {
+            currentToken = currentToken + letter
         }
     }
+    return tokens;
 }

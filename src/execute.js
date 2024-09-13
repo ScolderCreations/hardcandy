@@ -1,3 +1,6 @@
+import * as tokenizer from "./tokenizer"
+
+let tokens = tokenizer.tokenize()
 const variables = {}
 var tokenindex = 0
 function interpretCommand(command, argu) {
