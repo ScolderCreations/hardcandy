@@ -1,14 +1,15 @@
 file = ""
-let tokens;
+let tokens = {};
 const tk = require("./tokenizer.js")
 const fs = require("node:fs")
 fs.readFile("./test/test.hc", (err, data) => {
     if (err) throw err;
     file = String(data);
-    let tokens = tk.tokenize(file)
+    tokens = tk.tokenize(file)
     console.log(tokens) // remove later lol
     for (let toki = 0; toki < tokens.length; toki++) {
         interpretCommand(tokens[toki])
+        console.warn(toki)
     }
 })
 
@@ -35,7 +36,7 @@ function interpretCommand(command) {
             toki++
             break;
         default:
-            throw ReferenceError;
+            console.error("what is "+command);
     }
 }
 
