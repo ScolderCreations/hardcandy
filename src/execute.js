@@ -37,6 +37,21 @@ function interpretCommand(command) {
             variables[tokens[toki]] = evaluate([tokens[toki+1]])
             toki++;
             break;
+        case "div":
+            toki++
+            variables[tokens[toki]] = variables[tokens[toki]] / evaluate(tokens[toki+1])
+            toki++
+            break;
+        case "add":
+            toki++
+            variables[tokens[toki]] += evaluate(tokens[toki+1])
+            toki++
+            break;
+        case "sub":
+            toki++
+            variables[tokens[toki]] -= evaluate(tokens[toki+1])
+            toki++
+            break;
         default:
             console.error("what is "+command);
     }
