@@ -40,6 +40,7 @@ function interpretCommand(command) {
         case "undef":
             toki++;
             delete variables[tokens[toki]];
+            break;
         case "div":
             toki++
             variables[tokens[toki]] = variables[tokens[toki]] / evaluate(tokens[toki+1])
@@ -54,6 +55,14 @@ function interpretCommand(command) {
             toki++
             variables[tokens[toki]] = variables[tokens[toki]] - evaluate(tokens[toki+1])
             toki++
+            break;
+        case "if":
+            toki++
+            if (!tokens[toki]) {
+                while (tokens[toki] != "endif") {
+                    toki++
+                }
+            }
             break;
         default:
             console.error("what is "+command);
