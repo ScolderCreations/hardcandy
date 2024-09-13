@@ -14,6 +14,7 @@ function tokenize(source /* String */ ) {
             currentToken = currentToken + letter
         }
     }
+    tokens.push(currentToken);
     return tokens;
 }
 module.exports.tokenize = tokenize
