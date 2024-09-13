@@ -7,7 +7,7 @@ export function tokenize(source /* String */ ) {
         if (letter == '"') {
             isString = !isString;
         }
-        if (letter == " " & !isString) {
+        if ((letter == " ") | (letter == "\n") & !isString) {
             tokens.push(currentToken);
             currentToken = ""
         } else {

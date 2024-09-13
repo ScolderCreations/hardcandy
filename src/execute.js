@@ -1,6 +1,10 @@
-import * as tokenizer from "./tokenizer"
-
-let tokens = tokenizer.tokenize()
+const tk = require( "./tokenizer.js")
+const fs = require("node:fs")
+fs.readFile("../test/test.hc", (e, data) => {
+    if (e) throw e;
+    file = String(data);
+})
+let tokens = tk.tokenize(file)
 const variables = {}
 var tokenindex = 0
 function interpretCommand(command, argu) {
