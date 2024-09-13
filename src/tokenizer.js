@@ -3,7 +3,8 @@ function tokenize(source /* String */ ) {
     var letter;
     for (let x = 0; x < source.length; x++) {        
         letter = source[x];
-        if (letter == "\""):
+        if (letter == '"') {
             continue;
+        }
     }
 }
