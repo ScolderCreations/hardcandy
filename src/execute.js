@@ -30,7 +30,7 @@ function interpretCommand(command) {
     switch (command) {
         case "send":
             toki++;
-            console.log(evaluate(tokens[toki]))
+            console.log(String(evaluate(tokens[toki])))
             break;
         case "def":
             toki++;
