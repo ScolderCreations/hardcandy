@@ -6,10 +6,10 @@ fs.readFile("./test/test.hc", (err, data) => {
     if (err) throw err;
     file = String(data);
     tokens = tk.tokenize(file)
-    console.log(tokens) // remove later lol
+    // console.log(tokens) // remove later lol
     for (toki = 0; toki < tokens.length; toki++) {
         interpretCommand(tokens[toki])
-        console.warn(toki)
+        // console.warn(toki)
     }
 })
 
@@ -20,7 +20,9 @@ function evaluate(token) {
     try {
         return variables[String(token)]
     } catch {
-        return eval(token)
+        if (/^"$"/.test(token)) {
+            return String(token).slice(1,-1)
+        }
     }
 }
 
