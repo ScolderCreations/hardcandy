@@ -1,0 +1,2 @@
+{"name": "Hard Candy",
+"scripts": {"start": "node src/execute.js"}}
