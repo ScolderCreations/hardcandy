@@ -7,7 +7,7 @@ fs.readFile("./test/test.hc", (err, data) => {
     file = String(data);
     tokens = tk.tokenize(file)
     console.log(tokens) // remove later lol
-    for (let toki = 0; toki < tokens.length; toki++) {
+    for (toki = 0; toki < tokens.length; toki++) {
         interpretCommand(tokens[toki])
         console.warn(toki)
     }
@@ -27,13 +27,13 @@ function evaluate(token) {
 function interpretCommand(command) {
     switch (command) {
         case "send":
-            toki++
+            toki++;
             console.log(evaluate(tokens[toki]))
             break;
         case "def":
-            toki++
+            toki++;
             variables[tokens[toki]] = [tokens[toki+1]]
-            toki++
+            toki++;
             break;
         default:
             console.error("what is "+command);
