@@ -1,2 +1,7 @@
-{"name": "Hard Candy",
-"scripts": {"start": "node src/execute.js"}}
+{
+    "name": "hardcandy",
+    "scripts": 
+    {
+        "start": "node src/execute.js"
+    }
+}
