@@ -9,12 +9,22 @@ fs.readFile("./test/test.hc", (err, data) => {
 })
 
 const variables = {}
-var tokenindex = 0
+var toki = 0
 
-function interpretCommand(command, argu) {
+function evaluate(token) {
+    try {
+        return variables[String(token)]
+    } catch {
+        return eval(token)
+    }
+}
+
+function interpretCommands(command) {
     switch (command) {
         case "send":
-            console.log(argu)
+            toki++
+            if (/^"$"/.test(tokens[toki]))
+            console.log(tokens[toki])
             break;
         case "def":
             if (!argu[0]) throw SyntaxError;
