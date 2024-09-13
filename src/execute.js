@@ -1,15 +1,19 @@
 file = ""
+let tokens;
 const tk = require("./tokenizer.js")
 const fs = require("node:fs")
 fs.readFile("./test/test.hc", (err, data) => {
     if (err) throw err;
     file = String(data);
     let tokens = tk.tokenize(file)
-    console.log(tokens)
+    console.log(tokens) // remove later lol
+    for (let toki = 0; toki < tokens.length; toki++) {
+        interpretCommand(tokens[toki])
+    }
 })
 
 const variables = {}
-var toki = 0
+let toki;
 
 function evaluate(token) {
     try {
@@ -19,18 +23,19 @@ function evaluate(token) {
     }
 }
 
-function interpretCommands(command) {
+function interpretCommand(command) {
     switch (command) {
         case "send":
             toki++
-            if (/^"$"/.test(tokens[toki]))
-            console.log(tokens[toki])
+            console.log(evaluate(tokens[toki]))
             break;
         case "def":
-            if (!argu[0]) throw SyntaxError;
-            else variables[argu[0]] = [argu[1]]
+            toki++
+            variables[tokens[toki]] = [tokens[toki+1]]
+            toki++
             break;
         default:
             throw ReferenceError;
     }
 }
+
