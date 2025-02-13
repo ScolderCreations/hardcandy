@@ -10,3 +10,9 @@ send b
 def b 0
 if b
 send "this should not send"
+send "bluh"
+endif
+def b 1
+if 1
+send "this should send"
+endif

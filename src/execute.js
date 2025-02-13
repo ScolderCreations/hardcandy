@@ -3,7 +3,7 @@ let tokens = {};
 const fs = require("node:fs")
 const tk = require("./tokenizer.js")
 
-fs.readFile("./test/test.hc", (err, data) => {
+fs.readFile("./test/test.harc", (err, data) => {
     if (err) throw err;
     file = String(data);
     tokens = tk.tokenize(file)
@@ -58,10 +58,10 @@ function interpretCommand(command) {
             break;
         case "if":
             toki++
-            if (!tokens[toki]) {
+            if (tokens[toki]) {
                 while (tokens[toki] != "endif") {
-                    toki++
-                }
+                toki++
+            }
             }
             break;
         default:
